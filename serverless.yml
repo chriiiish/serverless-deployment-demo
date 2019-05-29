@@ -1,0 +1,22 @@
+# This file was initially setup using
+# sls create --template aws-nodejs serverless-deployment-demo
+
+service: serverless-deployment-demo
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+
+functions:
+  canary_deployment:
+    handler: handler.canary_deployment
+    events:
+      - http:
+          method: get
+          path: canary
+  linear_deployment:
+    handler: handler.linear_deployment
+    events:
+      - http:
+          method: get
+          path: linear
