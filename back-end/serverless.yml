@@ -1,0 +1,16 @@
+service: serverless-deployment-demo
+
+provider:
+  name: aws
+  runtime: dotnetcore2.1
+  stage: dev
+  region: ap-southeast-2
+
+package:
+  individually: true
+
+functions:
+  hello:
+    handler: CsharpHandlers::AwsDotnetCsharp.Handler::Hello
+    package:
+      artifact: bin/release/netcoreapp2.1/hello.zip
