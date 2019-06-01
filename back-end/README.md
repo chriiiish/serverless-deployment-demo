@@ -9,3 +9,8 @@ First build:
 
 Then deploy:
 `sls deploy --aws-profile {your-profile-name}`
+
+---
+
+# Neat things about this project
+* We use AWS XRay for tracing
