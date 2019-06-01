@@ -11,6 +11,10 @@ package:
 
 functions:
   hello:
-    handler: CsharpHandlers::AwsDotnetCsharp.Handler::Hello
+    handler: Serverless.DeploymentDemo::Serverless.DeploymentDemo.Handler::Hello
     package:
-      artifact: bin/release/netcoreapp2.1/hello.zip
+      artifact: bin/release/netcoreapp2.1/artifact.zip
+    events:
+      - http:
+          method: get
+          path: hello
