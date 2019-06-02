@@ -9,8 +9,8 @@ import { ApiResponse } from '../models/ApiResponse';
 
 export class ApiResultsComponent implements OnInit {
 
-  @Input() v1tweets: Array<ApiResponse>;
-  @Input() v2tweets: Array<ApiResponse>;
+  @Input() public v1tweets: Array<ApiResponse>;
+  @Input() public v2tweets: Array<ApiResponse>;
 
   constructor() { }
 
