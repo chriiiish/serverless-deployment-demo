@@ -1,4 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ApiRequestorComponent } from './api-requestor/api-requestor.component';
 import { ApiResultsComponent } from './api-results/api-results.component';
@@ -38,6 +39,33 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('div.panel h3').textContent).toEqual('Canary');
+
+    var foundCanary = false;
+    var panelTitles = compiled.querySelectorAll('div.panel h3')
+
+    panelTitles.forEach(element => {
+      if (element.innerHTML == "Canary"){
+        foundCanary = true;
+      }
+    });
+
+    expect(foundCanary).toBe(true);
+  });
+
+  it('should have a linear panel', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    
+    var foundCanary = false;
+    var panelTitles = compiled.querySelectorAll('div.panel h3')
+
+    panelTitles.forEach(element => {
+      if (element.innerHTML == "Linear"){
+        foundCanary = true;
+      }
+    });
+
+    expect(foundCanary).toBe(true);
   });
 });
