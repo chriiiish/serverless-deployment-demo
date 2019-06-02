@@ -1,5 +1,5 @@
 <div class="full-row">
     <label>URL:</label>
-    <input type="text" placeholder="https://something.execute-api.region.amazonaws.com/dev/tweet/method"/>
-    <button>Go</button>
+    <input #url type="text" placeholder="https://something.execute-api.region.amazonaws.com/dev/tweet/method"/>
+    <button (click)="ToggleRequests($event, url.value);">{{ startRequests == true ? "Go" : "Stop" }}</button>
 </div>

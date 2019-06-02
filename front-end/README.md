@@ -2,6 +2,7 @@
 This project creates a client-side web application to demonstrate the deployment methods on the API
 
 This is designed to be a simple front-end that shows the contents of the API responses from the back-end.
+It can be run locally with `ng serve` or you could host it as an S3 static site.
 
 ---
 
