@@ -1,8 +1,5 @@
 service: serverless-deployment-demo
 
-plugins:
-  - serverless-plugin-tracing
-
 provider:
   name: aws
   runtime: dotnetcore2.1
@@ -13,7 +10,7 @@ provider:
     lambda: true
   profile: rezare-personal
   iamRoleStatements:
-    - Effect: "Allow" # xray permissions (required)
+    - Effect: "Allow" # xray permissions
       Action:
         - "xray:PutTraceSegments"
         - "xray:PutTelemetryRecords"
@@ -25,10 +22,11 @@ package:
 
 functions:
   hello:
-    handler: Serverless.DeploymentDemo::Serverless.DeploymentDemo.Handler::Hello
+    handler: Serverless.DeploymentDemo::Serverless.DeploymentDemo.LambdaFunctions::GetTweet_Canary
     package:
       artifact: bin/release/netcoreapp2.1/artifact.zip
+    tracing: Active
     events:
       - http:
           method: get
-          path: hello
+          path: tweet/canary

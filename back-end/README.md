@@ -14,3 +14,14 @@ Then deploy:
 
 # Neat things about this project
 * We use AWS XRay for tracing
+
+---
+
+# Project Layout
+
+    .
+    ├── build.*                     # These files build the project
+    ├── LambdaFunctions.cs          # The code that generates the responses
+    ├── README.md
+    ├── serverless.yml              # The file that controls what resources are spun up on deployment
+    └── sls-deployment-demo.csproj  # The CSPROJ for the Lambda function code
