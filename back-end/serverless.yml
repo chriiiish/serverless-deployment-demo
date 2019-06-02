@@ -10,6 +10,10 @@ provider:
     apiGateway: true
     lambda: true
   profile: rezare-personal
+  tags:
+    owner: chris
+    region: ap
+    stack: serverless-deployment-demo
   iamRoleStatements:
     - Effect: "Allow" # xray permissions
       Action:
