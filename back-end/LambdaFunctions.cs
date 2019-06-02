@@ -4,6 +4,7 @@ using Amazon.XRay.Recorder.Core;
 using Amazon.XRay.Recorder.Handlers.AwsSdk;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 
 [assembly:LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 
@@ -63,7 +64,10 @@ namespace Serverless.DeploymentDemo
                                                                });
          return new APIGatewayProxyResponse{
             StatusCode = statusCode,
-            Body = bodyContent
+            Body = bodyContent,
+            Headers = new Dictionary<string, string>{
+               { "Access-Control-Allow-Origin", "*" }
+            }
          };
       }
    }

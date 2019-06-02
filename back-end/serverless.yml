@@ -36,6 +36,7 @@ package:
 functions:
   canary:
     name: lambda-canary
+    cors: true
     handler: Serverless.DeploymentDemo::Serverless.DeploymentDemo.LambdaFunctions::GetTweet_Canary
     package:
       artifact: bin/release/netcoreapp2.1/artifact.zip
@@ -50,6 +51,7 @@ functions:
 
   linear:
     name: lambda-linear
+    cors: true
     handler: Serverless.DeploymentDemo::Serverless.DeploymentDemo.LambdaFunctions::GetTweet_Linear
     package:
       artifact: bin/release/netcoreapp2.1/artifact.zip
