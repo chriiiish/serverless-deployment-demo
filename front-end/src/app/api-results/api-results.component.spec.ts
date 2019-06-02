@@ -82,4 +82,17 @@ describe('ApiResultsComponent', () => {
     expect(fixture.nativeElement.querySelectorAll('.tweet.v1').length).toBe(3);
     expect(fixture.nativeElement.querySelectorAll('.tweet.v2').length).toBe(2);
   });
+
+  it('should show a tweet in correct format', () => {
+    component.v1tweets = [
+      { ApiVersion: "1.0", Tweet: { Message: "MessageOne", User: "UserOne" }}
+    ];
+    component.v2tweets = [
+      { ApiVersion: "2.0", Tweet: { Message: "MessageTwo", User: "UserTwo" }}
+    ];
+
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector(".tweet.v1").innerHTML).toContain("1.0 - MessageOne (UserOne)");
+    expect(fixture.nativeElement.querySelector(".tweet.v2").innerHTML).toContain("2.0 - MessageTwo (UserTwo)");
+  });
 });
