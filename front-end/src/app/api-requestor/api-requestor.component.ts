@@ -11,7 +11,6 @@ export class ApiRequestorComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
-  interval = undefined;     // The refresh timer interval
   v1responses = [];         // V1 API Responses
   v2responses = [];         // V2 API Responses
   updateMethod: Function;   // The method to call to get url responses

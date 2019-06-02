@@ -27,4 +27,16 @@ describe('ApiRequestorComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have an input box', () => {
+    expect(fixture.nativeElement.querySelectorAll('input').length).toBe(1);
+  });
+
+  it('should have a button', () => {
+    expect(fixture.nativeElement.querySelectorAll('button').length).toBe(1);
+  });
+
+  it('should say "Go" on the button on start', () => {
+    expect(fixture.nativeElement.querySelector('button').textContent).toBe('Go');
+  });
 });
