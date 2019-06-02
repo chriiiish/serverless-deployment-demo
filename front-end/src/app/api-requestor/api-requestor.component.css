@@ -1,0 +1,13 @@
+input {
+    width: calc(100% - 100px);
+    margin: 0px 2px;
+}
+label {
+    width: 50px;
+}
+button {
+    width: 50px;
+}
+.full-row{
+    width: 100%;
+}
