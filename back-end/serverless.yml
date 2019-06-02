@@ -21,7 +21,7 @@ package:
   individually: true
 
 functions:
-  hello:
+  canary:
     handler: Serverless.DeploymentDemo::Serverless.DeploymentDemo.LambdaFunctions::GetTweet_Canary
     package:
       artifact: bin/release/netcoreapp2.1/artifact.zip
@@ -30,3 +30,12 @@ functions:
       - http:
           method: get
           path: tweet/canary
+  linear:
+    handler: Serverless.DeploymentDemo::Serverless.DeploymentDemo.LambdaFunctions::GetTweet_Linear
+    package:
+      artifact: bin/release/netcoreapp2.1/artifact.zip
+    tracing: Active
+    events:
+      - http:
+          method: get
+          path: tweet/linear
