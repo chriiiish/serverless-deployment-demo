@@ -1,0 +1,14 @@
+<!-- Version 1.0 Requests -->
+<div>
+  <div class="tweet v1" *ngFor="let v1tweet of v1tweets">
+      {{v1tweet.ApiVersion}} - {{v1tweet.Tweet.Message}} ({{v1tweet.Tweet.User}})
+  </div>
+</div>
+
+
+<!-- Version 2.0 Requests -->
+<div>
+  <div class="tweet v2" *ngFor="let v2tweet of v2tweets">
+      {{v2tweet.ApiVersion}} - {{v2tweet.Tweet.Message}} ({{v2tweet.Tweet.User}})
+  </div>
+</div>
