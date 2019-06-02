@@ -13,6 +13,7 @@ See the respective directories for the specifics
 
 This project creates:
 * A API backend (unauthenticated)
-* A single-page web application deployed to CloudFront
+* A single-page web application that requests responses from the API
+    This demonstrates (live) how the deployment is actually running
 
 **To Get Started, check out the Front-End and Back-End folders**
