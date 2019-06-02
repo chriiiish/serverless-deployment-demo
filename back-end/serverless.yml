@@ -5,6 +5,7 @@ provider:
   runtime: dotnetcore2.1
   stage: dev
   region: ap-southeast-2
+  apiName: api
   tracing: 
     apiGateway: true
     lambda: true
@@ -22,6 +23,7 @@ package:
 
 functions:
   canary:
+    name: lambda-canary
     handler: Serverless.DeploymentDemo::Serverless.DeploymentDemo.LambdaFunctions::GetTweet_Canary
     package:
       artifact: bin/release/netcoreapp2.1/artifact.zip
@@ -31,6 +33,7 @@ functions:
           method: get
           path: tweet/canary
   linear:
+    name: lambda-linear
     handler: Serverless.DeploymentDemo::Serverless.DeploymentDemo.LambdaFunctions::GetTweet_Linear
     package:
       artifact: bin/release/netcoreapp2.1/artifact.zip
