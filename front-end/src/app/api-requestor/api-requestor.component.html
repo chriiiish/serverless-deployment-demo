@@ -3,3 +3,5 @@
     <input #url type="text" placeholder="https://something.execute-api.region.amazonaws.com/dev/tweet/method"/>
     <button (click)="ToggleRequests($event, url.value);">{{ startRequests == true ? "Go" : "Stop" }}</button>
 </div>
+<br /><br />
+<app-api-results [v1tweets]=v1responses [v2tweets]=v2responses></app-api-results>
