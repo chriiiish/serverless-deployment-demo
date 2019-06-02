@@ -14,7 +14,7 @@ namespace Serverless.DeploymentDemo
    /// </summary>
    public class LambdaFunctions
    {
-      public const string API_VERSION = "1.0";
+      public const string API_VERSION = "2.0";
 
       /// <summary>
        /// Returns a single tweet. This updates using the Canary deployment method

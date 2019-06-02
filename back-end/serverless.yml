@@ -17,6 +17,14 @@ provider:
         - "xray:PutTelemetryRecords"
       Resource:
         - "*"
+    - Effect: Allow # Canary Deployment Permissions
+      Action:
+        - codedeploy:*
+      Resource:
+        - "*"
+
+plugins:
+  - serverless-plugin-canary-deployments
 
 package:
   individually: true
@@ -28,16 +36,23 @@ functions:
     package:
       artifact: bin/release/netcoreapp2.1/artifact.zip
     tracing: Active
+    deploymentSettings:
+      type: Canary10Percent5Minutes
+      alias: live
     events:
       - http:
           method: get
           path: tweet/canary
+
   linear:
     name: lambda-linear
     handler: Serverless.DeploymentDemo::Serverless.DeploymentDemo.LambdaFunctions::GetTweet_Linear
     package:
       artifact: bin/release/netcoreapp2.1/artifact.zip
     tracing: Active
+    deploymentSettings:
+      type: Linear10PercentEvery1Minute
+      alias: live
     events:
       - http:
           method: get
