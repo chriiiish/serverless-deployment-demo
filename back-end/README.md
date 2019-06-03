@@ -51,7 +51,8 @@ Written in: C# (dotnetcore2.1) & [Serverless Framework](https://serverless.com/)
     `sls deploy`
 
 8. While the deployment is running check out two things
-    1. The CodeDeploy console for your region. You should see two new deployments there. Clicking into those will show you the status
+    1. The [CodeDeploy console](https://ap-southeast-2.console.aws.amazon.com/codesuite/codedeploy/deployments?region=ap-southeast-2) for your region. You should see two new deployments there. Clicking into those will show you the status
+    2. The [AWS XRay console](https://ap-southeast-2.console.aws.amazon.com/xray/home?region=ap-southeast-2#/service-map) for a live view of the requests and average processing time
     2. If you're running the front end you'll start to see green V2.0 messages coming through:
         `V2.0 - I'm a Canary Deployment (Lambda)`
         
