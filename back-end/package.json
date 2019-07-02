@@ -1,7 +1,6 @@
 {
     "description": "A simple api that returns \"tweets\"",
     "devDependencies": {
-        "serverless": "^1.46.1",
         "serverless-plugin-canary-deployments": "^0.4.7"
     },
     "license": "GPL-3.0-or-later",

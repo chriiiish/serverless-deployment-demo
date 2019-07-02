@@ -8,8 +8,10 @@ Written in: C# (dotnetcore2.1) & [Serverless Framework](https://serverless.com/)
 1. Change the deployment profile (required)
     The current deployment profile name is "rezare-personal". Change this to "default" or your aws cli profile name. Line 12 (provider > profile)
 
-2. Make sure you have the serverless framework installed
+2. Make sure you have the serverless framework installed, and the canary plugin
     `npm install serverless -g`
+    `npm install`
+    **Note! `serverless` must be installed globally. If you install it in this directory the build will fail. Running `npm install` will only install the deployment plugin.**
 
 3. Make sure you have the aws cli installed
     `npm install awscli -g`
@@ -18,6 +20,7 @@ Written in: C# (dotnetcore2.1) & [Serverless Framework](https://serverless.com/)
 
 4. Change the tags in the serverless.yml template (optional)
     These are the tags that get associated to the AWS resources. You can find them on line 13 (provider > tags).
+
 
 ## Demonstrating a deployment
 1. First build the project:
