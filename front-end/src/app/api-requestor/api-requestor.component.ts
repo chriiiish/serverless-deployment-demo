@@ -13,6 +13,8 @@ export class ApiRequestorComponent implements OnInit {
 
   v1responses = [];         // V1 API Responses
   v2responses = [];         // V2 API Responses
+  last100versions = [];     // The last 100 API Responses (versions only)
+  percentageV2InLast100Requests: number;     // The percentage of the last 100 Responses that were V2
   updateMethod: Function;   // The method to call to get url responses
   startRequests = true;     // Should the next button click start requests
 
@@ -67,10 +69,24 @@ export class ApiRequestorComponent implements OnInit {
       responses.forEach(response => {
         if (response.ApiVersion == "1.0"){
           v1.push(response);
+          context.last100versions.push(1);
         }else{
           v2.push(response);
+          context.last100versions.push(2);
         }        
       });
+
+      // Make sure there's no more than 100 items in the versions list
+      while(this.last100versions.length > 100){
+        context.last100versions.pop();
+      }
+
+      // Assign the % of V2 requests
+      var numberOfV1ResponsesInLast100Requests = 0;
+      var numberOfV2ResponsesInLast100Requests = 0;
+      context.last100versions.forEach(function(version){ if(version == 1){ numberOfV2ResponsesInLast100Requests++; } });
+      context.last100versions.forEach(function(version){ if(version == 2){ numberOfV2ResponsesInLast100Requests++; } });
+      context.percentageV2InLast100Requests = (numberOfV2ResponsesInLast100Requests / (numberOfV1ResponsesInLast100Requests + numberOfV2ResponsesInLast100Requests) ) * 100;
 
       // Set the values
       context.v1responses = v1;
