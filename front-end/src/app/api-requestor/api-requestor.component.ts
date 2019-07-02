@@ -84,8 +84,8 @@ export class ApiRequestorComponent implements OnInit {
       // Assign the % of V2 requests
       var numberOfV1ResponsesInLast50Requests = 0;
       var numberOfV2ResponsesInLast50Requests = 0;
-      context.last100versions.forEach(function(version){ if(version == 1){ numberOfV1ResponsesInLast50Requests++; } });
-      context.last100versions.forEach(function(version){ if(version == 2){ numberOfV2ResponsesInLast50Requests++; } });
+      context.last50versions.forEach(function(version){ if(version == 1){ numberOfV1ResponsesInLast50Requests++; } });
+      context.last50versions.forEach(function(version){ if(version == 2){ numberOfV2ResponsesInLast50Requests++; } });
       context.percentageV2InLast50Requests = (numberOfV2ResponsesInLast50Requests / (numberOfV1ResponsesInLast50Requests + numberOfV2ResponsesInLast50Requests) ) * 100;
       // Make things look pretty, not precise
       context.percentageV2InLast50Requests = Math.round(context.percentageV2InLast50Requests);
