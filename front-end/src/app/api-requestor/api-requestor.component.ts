@@ -13,8 +13,8 @@ export class ApiRequestorComponent implements OnInit {
 
   v1responses = [];         // V1 API Responses
   v2responses = [];         // V2 API Responses
-  last100versions = [];     // The last 100 API Responses (versions only)
-  percentageV2InLast100Requests = 0;     // The percentage of the last 100 Responses that were V2
+  last50versions = [];     // The last 50 API Responses (versions only)
+  percentageV2InLast50Requests = 0;     // The percentage of the last 50 Responses that were V2
   updateMethod: Function;   // The method to call to get url responses
   startRequests = true;     // Should the next button click start requests
 
@@ -69,26 +69,26 @@ export class ApiRequestorComponent implements OnInit {
       responses.forEach(response => {
         if (response.ApiVersion == "1.0"){
           v1.push(response);
-          context.last100versions.unshift(1);
+          context.last50versions.unshift(1);
         }else{
           v2.push(response);
-          context.last100versions.unshift(2);
+          context.last50versions.unshift(2);
         }        
       });
 
-      // Make sure there's no more than 100 items in the versions list
-      while(this.last100versions.length > 100){
-        context.last100versions.pop();
+      // Make sure there's no more than 50 items in the versions list
+      while(this.last50versions.length > 50){
+        context.last50versions.pop();
       }
 
       // Assign the % of V2 requests
-      var numberOfV1ResponsesInLast100Requests = 0;
-      var numberOfV2ResponsesInLast100Requests = 0;
-      context.last100versions.forEach(function(version){ if(version == 1){ numberOfV1ResponsesInLast100Requests++; } });
-      context.last100versions.forEach(function(version){ if(version == 2){ numberOfV2ResponsesInLast100Requests++; } });
-      context.percentageV2InLast100Requests = (numberOfV2ResponsesInLast100Requests / (numberOfV1ResponsesInLast100Requests + numberOfV2ResponsesInLast100Requests) ) * 100;
+      var numberOfV1ResponsesInLast50Requests = 0;
+      var numberOfV2ResponsesInLast50Requests = 0;
+      context.last100versions.forEach(function(version){ if(version == 1){ numberOfV1ResponsesInLast50Requests++; } });
+      context.last100versions.forEach(function(version){ if(version == 2){ numberOfV2ResponsesInLast50Requests++; } });
+      context.percentageV2InLast50Requests = (numberOfV2ResponsesInLast50Requests / (numberOfV1ResponsesInLast50Requests + numberOfV2ResponsesInLast50Requests) ) * 100;
       // Make things look pretty, not precise
-      context.percentageV2InLast100Requests = Math.round(context.percentageV2InLast100Requests);
+      context.percentageV2InLast50Requests = Math.round(context.percentageV2InLast50Requests);
 
       // Set the values
       context.v1responses = v1;
