@@ -83,3 +83,10 @@ Written in: C# (dotnetcore2.1) & [Serverless Framework](https://serverless.com/)
     ├── README.md
     ├── serverless.yml              # The file that controls what resources are spun up on deployment
     └── sls-deployment-demo.csproj  # The CSPROJ for the Lambda function code
+
+---
+
+# Questions
+
+1. What's a package.json, npm, node file doing in a C# project?
+   That installs the *serverless* framework plugin for the deployment
